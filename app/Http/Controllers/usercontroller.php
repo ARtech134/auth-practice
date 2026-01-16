@@ -61,4 +61,9 @@ class usercontroller extends Controller
     {
         echo "destroy user $id";
     }
+
+     public function register(Request $request)
+    {
+        return "Register method working ✅";
+    }
 }

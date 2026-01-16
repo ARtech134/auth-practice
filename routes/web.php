@@ -2,12 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usercontroller;
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+use App\Http\Middleware\firstmiddleware;
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::resource('user',usercontroller::class);  
 
-route::get('about', function(){
-    return "welcom to my website";
+Route::get('about', function(){
+    return"welcom to my websit";
 })->name('home');
+
+Route::view('register','register');
+Route::get('registersave',[usercontroller::class,'register']) -> Middleware(firstmiddleware::class);
+
+Route::view('login','login');
+
+Route::view('contactpage','contact');
