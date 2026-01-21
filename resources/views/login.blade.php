@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-5 mx-auto mt-3">
                 <h1 class="text-center">Login page</h1>
-                <form action="" class="card p-3">
+                <form method = "POST" action = "{{ route('/login') }}" class="card p-3">
                     @csrf
                     <input type="email" placeholder='Enter your email' name='email' class="form-control mt-3">
                     <input type="password" placeholder="Enter your password" name='password' class="form-control mt-3" >

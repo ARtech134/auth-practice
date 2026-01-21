@@ -16,6 +16,10 @@ Route::get('about', function(){
 Route::view('register','register');
 Route::get('registersave',[usercontroller::class,'register']) -> Middleware(firstmiddleware::class);
 
-Route::view('login','login');
+Route::view('/login','login');
+Route::Post('/login',[rafaycontroller::class, 'login']);
+
 
 Route::view('contactpage','contact');
+
+Route::view('innerlogin','innerlogin');
