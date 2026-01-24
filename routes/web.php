@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usercontroller;
+use App\Http\Controllers\rafaycontroller;
 use App\Http\Middleware\firstmiddleware;
 Route::get('/', function () {
     return view('welcome');
@@ -9,17 +10,17 @@ Route::get('/', function () {
 
 Route::resource('user',usercontroller::class);  
 
-Route::get('about', function(){
-    return"welcom to my websit";
-})->name('home');
 
-Route::view('register','register');
-Route::get('registersave',[usercontroller::class,'register']) -> Middleware(firstmiddleware::class);
+Route::view('about', 'about')->name('about');
 
-Route::view('/login','login');
-Route::Post('/login',[rafaycontroller::class, 'login']);
+Route::view('register','register')->name('register');
+Route::post('register',[rafaycontroller::class,'register'])->name('register.post');
+
+Route::view('login','login')->name('login');
+Route::Post('login',[rafaycontroller::class, 'login'])->name('login.post');
+Route::get('logout',[rafaycontroller::class, 'logout'])->name('logout');
 
 
-Route::view('contactpage','contact');
+Route::view('contactpage','contact')->name('contact');
 
-Route::view('innerlogin','innerlogin');
+Route::view('innerlogin','innerlogin')->name('innerlogin');
